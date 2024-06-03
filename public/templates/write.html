@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Find Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #large-text-box {
+            width: 800px;  /* Width of the text box */
+            height: 400px; /* Height of the text box */
+        }
+         #button {
+             display: inline-block;
+             padding: 10px 20px;
+             background-color: #007bff;
+             color: white;
+             text-decoration: none;
+             border-radius: 5px;
+             font-family: Arial, sans-serif;
+         }
+
+        #button:hover {
+            background-color: #0056b3;
+        }
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Write a Blog</h1>
+    <form action="/entry" method="post">
+        <label>Enter the Title of the Blog</label>
+        <input type="text" name="title" placeholder="Blog Title" required>
+        <p>Content</p>
+        <textarea id="large-text-box" name="content"></textarea>
+        <br>
+        <input type="hidden" name="action" id="action" value="save">
+        <input type="submit" value="Save" id="button" onclick="document.getElementById('action').value='save';">
+    </form>
+
+</body>
+</html>

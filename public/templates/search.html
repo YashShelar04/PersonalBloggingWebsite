@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Find Blog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Find your blogs</h1>
+<form action="/find" method="post">
+    <label for="inputType">Select Input Type:</label>
+    <select id="inputType" name="inputType" onchange="changeInputType()">
+        <option value="text">Blog Title</option>
+        <option value="number">Blog Id/Number</option>
+        <option value="date">Date</option>
+    </select>
+
+    <label for="dynamicInput">Input:</label>
+    <input type="text" id="dynamicInput" name="dynamicInput" placeholder="Enter blog title">
+
+    <input type="hidden" name="action" id="action">
+    <input type="submit" onclick="document.getElementById('action').value='Search'">
+    <button type="submit" onclick="document.getElementById('action').value='Delete'; document.getElementById('blogForm').submit();">Delete</button>
+</form>
+<script>
+    function changeInputType() {
+        const inputType = document.getElementById('inputType').value;
+        const dynamicInput = document.getElementById('dynamicInput');
+        const hiddenInputType = document.getElementById('hiddenInputType');
+
+        // Set the value of the hidden input field to the selected inputType
+        hiddenInputType.value = inputType;
+
+        if (inputType === 'date') {
+            dynamicInput.type = 'date'; // Ensuring correct input type for dates
+            dynamicInput.placeholder = 'Enter a date (YYYY-MM-DD)';
+        } else if (inputType === 'number') {
+            dynamicInput.type = 'number';
+            dynamicInput.placeholder = 'Enter blog ID';
+        } else {
+            dynamicInput.type = 'text'; // Default to text for titles
+            dynamicInput.placeholder = 'Enter blog title';
+        }
+    }
+
+</script>
+</body>
+</html>
